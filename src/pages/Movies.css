@@ -1,0 +1,2922 @@
+/* =========================================================
+   CINETARA MOVIES — PREMIUM CINEMA EXPERIENCE
+   ========================================================= */
+
+.movies-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #08080a;
+  color: #f5f5f6;
+}
+
+/* =========================================================
+   TOP BAR / BRANDING
+   ========================================================= */
+
+.movies-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 26px 7.2%;
+
+  pointer-events: none;
+}
+
+.movies-topbar a {
+  pointer-events: auto;
+}
+
+.movies-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: rgba(255, 255, 255, 0.76);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.movies-back-link:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.movies-brand img {
+  display: block;
+
+  width: 128px;
+  height: auto;
+
+  object-fit: contain;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.movies-hero {
+  position: relative;
+
+  min-height: 720px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  padding: 120px 7.2% 90px;
+
+  isolation: isolate;
+}
+
+.movies-hero-content {
+  position: relative;
+  z-index: 3;
+
+  width: min(610px, 58%);
+}
+
+.movies-eyebrow {
+  margin: 0 0 16px;
+
+  color: #ff4a62;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.6px;
+}
+
+.movies-hero h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(58px, 7vw, 105px);
+  font-weight: 800;
+
+  line-height: 0.88;
+  letter-spacing: -5px;
+}
+
+.movies-hero h1 span,
+.movies-experience h2 span {
+  color: #ff1738;
+}
+
+.movies-hero-copy {
+  max-width: 410px;
+
+  margin: 30px 0 28px;
+
+  color: #c1c1c8;
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.movies-hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  border: 1px solid rgba(255, 23, 56, 0.7);
+  border-radius: 3px;
+
+  background: #ff1738;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+
+  box-shadow: 0 12px 32px rgba(255, 23, 56, 0.12);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.movies-hero-button:hover {
+  transform: translateY(-2px);
+
+  background: #f5082f;
+
+  box-shadow:
+    0 16px 40px rgba(255, 23, 56, 0.22);
+}
+
+/* =========================================================
+   HERO FEATURE
+   ========================================================= */
+
+.movies-hero-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 28px;
+
+  min-height: 18px;
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition:
+    opacity 0.32s ease,
+    transform 0.32s ease;
+}
+
+.movies-hero-feature.is-changing {
+  opacity: 0;
+
+  transform: translateY(4px);
+}
+
+.movies-hero-feature span {
+  color: #9c9ca4;
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.movies-hero-feature strong {
+  color: #f0f0f2;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   HERO ART
+   ========================================================= */
+
+.movies-hero-art {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  overflow: hidden;
+}
+
+.movies-hero-art-image {
+  position: absolute;
+  inset: -3%;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  transform: scale(1.035);
+
+  will-change: background-image;
+}
+
+.movies-hero-art-image.hero-phase-visible,
+.movies-hero-art-image.hero-phase-revealing,
+.movies-hero-art-image.hero-phase-covering {
+  opacity: 0.78;
+}
+
+/* =========================================================
+   HERO EMPTY STATE
+   ========================================================= */
+
+.movies-hero-empty-art {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 70% 40%,
+      rgba(255, 23, 56, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #0b0b0e,
+      #151116 55%,
+      #08080a
+    );
+}
+
+/* =========================================================
+   HERO TRANSITION
+   ========================================================= */
+
+.movies-hero-transition-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  background:
+    radial-gradient(
+      circle at 72% 45%,
+      rgba(255, 23, 56, 0.035),
+      transparent 36%
+    ),
+    #050507;
+
+  pointer-events: none;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.82s cubic-bezier(
+      0.22,
+      0.61,
+      0.36,
+      1
+    );
+}
+
+.movies-hero-transition-overlay.hero-phase-covering {
+  opacity: 0.97;
+
+  transition-duration: 0.52s;
+}
+
+.movies-hero-transition-overlay.hero-phase-revealing,
+.movies-hero-transition-overlay.hero-phase-visible {
+  opacity: 0;
+
+  transition-duration: 0.82s;
+}
+
+/* =========================================================
+   HERO VIGNETTE
+   ========================================================= */
+
+.movies-hero-vignette {
+  position: absolute;
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      #08080a 0%,
+      rgba(8, 8, 10, 0.97) 14%,
+      rgba(8, 8, 10, 0.8) 34%,
+      rgba(8, 8, 10, 0.18) 68%,
+      rgba(8, 8, 10, 0.66) 100%
+    ),
+    linear-gradient(
+      0deg,
+      #08080a 0%,
+      rgba(8, 8, 10, 0.04) 42%,
+      rgba(8, 8, 10, 0.42) 100%
+    );
+}
+
+/* =========================================================
+   HERO DOTS
+   ========================================================= */
+
+.movies-hero-dots {
+  position: absolute;
+
+  right: 7.2%;
+  bottom: 48px;
+
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.movies-hero-dots span {
+  width: 22px;
+  height: 2px;
+
+  background: rgba(255, 255, 255, 0.28);
+
+  transition:
+    width 0.45s cubic-bezier(
+      0.22,
+      0.61,
+      0.36,
+      1
+    ),
+    background 0.45s ease;
+}
+
+.movies-hero-dots span.active {
+  width: 42px;
+
+  background: #ff1738;
+}
+
+/* =========================================================
+   MOVIE LIST
+   ========================================================= */
+
+.movies-list-section {
+  scroll-margin-top: 18px;
+
+  padding: 75px 7.2% 105px;
+
+  border-top: 1px solid
+    rgba(255, 255, 255, 0.07);
+
+  background: #08080a;
+}
+
+.movies-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 34px;
+}
+
+.movies-section-heading h2,
+.movies-experience h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: clamp(34px, 4vw, 58px);
+
+  line-height: 0.98;
+  letter-spacing: -2.5px;
+}
+
+.movies-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.movies-tabs button {
+  min-height: 36px;
+
+  padding: 0 13px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.13);
+
+  border-radius: 2px;
+
+  background: transparent;
+
+  color: #9d9da5;
+
+  cursor: pointer;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.movies-tabs button:hover,
+.movies-tabs button.active {
+  border-color: rgba(
+    255,
+    23,
+    56,
+    0.58
+  );
+
+  background: rgba(
+    255,
+    23,
+    56,
+    0.09
+  );
+
+  color: #ff7183;
+}
+
+/* =========================================================
+   MOVIE STATES
+   ========================================================= */
+
+.movies-state {
+  min-height: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.07);
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.015
+  );
+
+  color: #777780;
+
+  text-align: center;
+}
+
+.movies-state p {
+  margin: 0;
+
+  max-width: 420px;
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+
+  line-height: 1.7;
+}
+
+.movies-state-loader {
+  width: 25px;
+  height: 25px;
+
+  border: 2px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-top-color: #ff1738;
+
+  border-radius: 50%;
+
+  animation:
+    movies-loader-spin 0.8s
+    linear infinite;
+}
+
+@keyframes movies-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.movies-state-error p {
+  color: #b0b0b7;
+
+  letter-spacing: 0;
+
+  text-transform: none;
+}
+
+.movies-state-error button {
+  min-height: 38px;
+
+  padding: 0 16px;
+
+  border: 1px solid
+    rgba(255, 23, 56, 0.5);
+
+  border-radius: 3px;
+
+  background: rgba(
+    255,
+    23,
+    56,
+    0.08
+  );
+
+  color: #ff687a;
+
+  cursor: pointer;
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+/* =========================================================
+   MOVIE GRID
+   ========================================================= */
+
+.movie-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 32px 18px;
+}
+
+.movie-card {
+  min-width: 0;
+}
+
+.movie-poster-button {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 2 / 3;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 4px;
+
+  background: #111114;
+
+  cursor: pointer;
+}
+
+.movie-poster-button img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.55s ease;
+}
+
+.movie-poster-button:hover img {
+  transform: scale(1.045);
+}
+
+.movie-poster-fallback {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(255, 23, 56, 0.18),
+      transparent 35%
+    ),
+    #151519;
+}
+
+.movie-poster-fallback span {
+  color: rgba(
+    255,
+    255,
+    255,
+    0.35
+  );
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.movie-card-shade {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.1),
+      transparent 45%,
+      rgba(0, 0, 0, 0.84)
+    );
+
+  pointer-events: none;
+}
+
+.movie-card-status {
+  position: absolute;
+
+  top: 11px;
+  left: 11px;
+
+  padding: 5px 7px;
+
+  background: rgba(
+    7,
+    7,
+    9,
+    0.8
+  );
+
+  color: #ffffff;
+
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(8px);
+}
+
+.movie-play {
+  position: absolute;
+
+  right: 11px;
+  bottom: 11px;
+
+  display: grid;
+
+  width: 38px;
+  height: 38px;
+
+  place-items: center;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.28);
+
+  border-radius: 50%;
+
+  background: rgba(
+    7,
+    7,
+    9,
+    0.62
+  );
+
+  color: #ffffff;
+
+  backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.movie-poster-button:hover
+  .movie-play {
+  transform: scale(1.08);
+
+  background: rgba(
+    255,
+    23,
+    56,
+    0.88
+  );
+}
+
+.movie-card-info {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding-top: 13px;
+}
+
+.movie-card-info h3 {
+  margin: 0 0 5px;
+
+  color: #f6f6f7;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+.movie-card-info p {
+  margin: 0;
+
+  color: #a4a4ac;
+
+  font-size: 9px;
+
+  line-height: 1.45;
+}
+
+.movie-rating {
+  flex: 0 0 auto;
+
+  padding: 4px 5px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.13);
+
+  color: #c6c6cc;
+
+  font-size: 7px;
+  font-weight: 800;
+}
+
+.movie-meta {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 10px;
+
+  color: #85858e;
+
+  font-size: 8px;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+
+.movies-experience {
+  display: grid;
+
+  grid-template-columns:
+    1fr 0.65fr;
+
+  align-items: end;
+
+  gap: 60px;
+
+  padding: 105px 7.2% 120px;
+
+  border-top: 1px solid
+    rgba(255, 255, 255, 0.07);
+
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(255, 23, 56, 0.08),
+      transparent 30%
+    ),
+    #08080a;
+}
+
+.movies-experience > p {
+  max-width: 390px;
+
+  margin: 0;
+
+  color: #a2a2aa;
+
+  font-size: 13px;
+
+  line-height: 1.9;
+}
+
+/* =========================================================
+   MOVIE MODAL
+   ========================================================= */
+
+.movie-modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 100;
+
+  display: grid;
+  place-items: center;
+
+  padding: 24px;
+
+  background: rgba(
+    0,
+    0,
+    0,
+    0.82
+  );
+
+  backdrop-filter: blur(15px);
+}
+
+.movie-modal {
+  position: relative;
+
+  width: min(760px, 100%);
+
+  max-height:
+    calc(100vh - 48px);
+
+  overflow: auto;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.13);
+
+  border-radius: 6px;
+
+  background: #101012;
+
+  box-shadow:
+    0 35px 100px
+      rgba(0, 0, 0, 0.72),
+    0 0 80px
+      rgba(255, 23, 56, 0.05);
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(255, 255, 255, 0.15)
+    transparent;
+}
+
+.movie-modal::-webkit-scrollbar {
+  width: 5px;
+}
+
+.movie-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.movie-modal::-webkit-scrollbar-thumb {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.16
+  );
+
+  border-radius: 10px;
+}
+
+.movie-modal-close {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  z-index: 5;
+
+  display: grid;
+
+  width: 38px;
+  height: 38px;
+
+  place-items: center;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.17);
+
+  border-radius: 50%;
+
+  background: rgba(
+    0,
+    0,
+    0,
+    0.58
+  );
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.movie-modal-close:hover {
+  transform: rotate(90deg);
+
+  border-color: rgba(
+    255,
+    255,
+    255,
+    0.3
+  );
+
+  background: rgba(
+    255,
+    23,
+    56,
+    0.72
+  );
+}
+
+/* =========================================================
+   MODAL MOVIE ART
+   ========================================================= */
+
+.movie-modal-backdrop-image {
+  min-height: 245px;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  position: relative;
+}
+
+.movie-modal-backdrop-image::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0.12) 45%,
+      #101012 100%
+    );
+}
+
+/* =========================================================
+   MODAL CONTENT
+   IMPORTANT:
+   No negative margin here.
+   This prevents the title from sitting
+   halfway over the poster.
+   ========================================================= */
+
+.movie-modal-content {
+  position: relative;
+
+  padding: 4px 34px 27px;
+}
+
+.movie-modal-content
+  .movies-eyebrow {
+  margin-bottom: 8px;
+}
+
+.movie-modal-content h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Manrope", sans-serif;
+
+  font-size: 36px;
+  line-height: 1.05;
+
+  letter-spacing: -1.5px;
+}
+
+.movie-modal-description {
+  margin: 9px 0 13px;
+
+  color: #ababB3;
+
+  font-size: 11px;
+}
+
+.movie-modal-story {
+  max-width: 640px;
+
+  margin: 0 0 20px;
+
+  color: #a5a5ad;
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   SHOW HEADING
+   ========================================================= */
+
+.movie-show-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 10px;
+
+  color: #85858d;
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: 1.15px;
+
+  text-transform: uppercase;
+}
+
+.movie-show-heading > div {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  color: #e3e3e6;
+}
+
+.movie-show-heading > div svg {
+  color: #bdbdc4;
+}
+
+/* =========================================================
+   SHOW GROUP
+   ========================================================= */
+
+.movie-show-groups {
+  display: flex;
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+.movie-show-group {
+  padding: 0;
+}
+
+/* =========================================================
+   DATE
+   ========================================================= */
+
+.movie-show-date {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 8px;
+
+  min-height: 26px;
+}
+
+.movie-show-date-icon {
+  display: grid;
+
+  width: 27px;
+  height: 27px;
+
+  place-items: center;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.1);
+
+  border-radius: 3px;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.025
+  );
+
+  color: #b9b9c0;
+}
+
+.movie-show-date > div:last-child {
+  display: flex;
+  align-items: baseline;
+
+  gap: 7px;
+}
+
+.movie-show-date strong {
+  color: #eeeeef;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 0.6px;
+}
+
+.movie-show-date span {
+  color: #777780;
+
+  font-size: 9px;
+
+  letter-spacing: 0.2px;
+}
+
+/* =========================================================
+   COMPACT SHOW CARDS
+   ========================================================= */
+
+.movie-show-times {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 8px;
+}
+
+.movie-show-times button {
+  position: relative;
+
+  min-width: 0;
+
+  min-height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 2px;
+
+  padding: 7px 8px;
+
+  overflow: hidden;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.12);
+
+  border-radius: 3px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  color: #eeeeef;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease,
+    color 0.22s ease;
+}
+
+.movie-show-times button:hover:not(
+    :disabled
+  ) {
+  transform: translateY(-2px);
+
+  border-color: rgba(
+    255,
+    23,
+    56,
+    0.62
+  );
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 23, 56, 0.075),
+      rgba(255, 255, 255, 0.018)
+    );
+
+  box-shadow:
+    0 8px 22px
+      rgba(0, 0, 0, 0.22);
+
+  color: #ffffff;
+}
+
+/* =========================================================
+   SHOW TIME
+   ========================================================= */
+
+.show-time {
+  position: relative;
+  z-index: 2;
+
+  color: #ededee;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  line-height: 1.1;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.22s ease,
+    transform 0.22s ease;
+}
+
+/* =========================================================
+   SHOW PRICE
+   ========================================================= */
+
+.show-price {
+  position: relative;
+  z-index: 2;
+
+  color: #96969e;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  line-height: 1.1;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.22s ease;
+}
+
+/* =========================================================
+   SCREEN LABEL
+   ========================================================= */
+
+.show-screen {
+  position: relative;
+  z-index: 2;
+
+  max-width: 100%;
+
+  margin-top: 1px;
+
+  overflow: hidden;
+
+  color: #6f6f77;
+
+  font-size: 6.5px;
+  font-weight: 700;
+
+  letter-spacing: 0.75px;
+
+  text-transform: uppercase;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  transition:
+    color 0.22s ease;
+}
+
+.show-screen.sold-label {
+  color: #85858d;
+
+  letter-spacing: 0.7px;
+}
+
+/* =========================================================
+   SOLD OUT
+   ========================================================= */
+
+.movie-show-times button.sold-out {
+  border-color: rgba(
+    255,
+    255,
+    255,
+    0.07
+  );
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.018
+  );
+
+  color: #66666e;
+
+  cursor: not-allowed;
+
+  opacity: 0.62;
+}
+
+.movie-show-times button.sold-out
+  .show-time {
+  color: #9a9aa0;
+}
+
+.movie-show-times button.sold-out
+  .show-price {
+  display: none;
+}
+
+/* =========================================================
+   SELECTED SHOW
+   ========================================================= */
+
+.movie-show-times button.selected {
+  border-color: #ff1738;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ff1738 0%,
+      #e90f2f 52%,
+      #b90722 100%
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 9px 28px
+      rgba(255, 23, 56, 0.22),
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.16);
+}
+
+.movie-show-times button.selected
+  .show-time {
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+.movie-show-times button.selected
+  .show-price {
+  color: rgba(
+    255,
+    255,
+    255,
+    0.86
+  );
+}
+
+.movie-show-times button.selected
+  .show-screen {
+  color: rgba(
+    255,
+    255,
+    255,
+    0.68
+  );
+}
+
+/* =========================================================
+   TICKET ANIMATION
+   ========================================================= */
+
+.show-ticket-animation {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  z-index: 5;
+
+  display: grid;
+
+  place-items: center;
+
+  color: #ffffff;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.55)
+    rotate(-18deg);
+}
+
+.movie-show-times
+  button.selecting
+  .show-ticket-animation {
+  animation:
+    show-ticket-jump
+    0.72s
+    cubic-bezier(
+      0.22,
+      0.61,
+      0.36,
+      1
+    )
+    both;
+}
+
+@keyframes show-ticket-jump {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, 18px)
+      scale(0.55)
+      rotate(-18deg);
+  }
+
+  18% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -7px)
+      scale(1.08)
+      rotate(7deg);
+  }
+
+  38% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -2px)
+      scale(1.2)
+      rotate(-5deg);
+  }
+
+  58% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -2px)
+      scale(1)
+      rotate(0deg);
+  }
+
+  78% {
+    opacity: 0.45;
+
+    transform:
+      translate(-50%, -2px)
+      scale(0.92)
+      rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -2px)
+      scale(0.8)
+      rotate(0deg);
+  }
+}
+
+/* =========================================================
+   SELECTION SHINE
+   ========================================================= */
+
+.show-selection-shine {
+  position: absolute;
+
+  top: -30%;
+  left: -75%;
+
+  width: 45%;
+  height: 170%;
+
+  z-index: 4;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.48),
+      transparent
+    );
+
+  opacity: 0;
+
+  transform: skewX(-18deg);
+}
+
+.movie-show-times
+  button.selecting
+  .show-selection-shine {
+  animation:
+    show-card-shine
+    0.68s
+    ease-out
+    both;
+}
+
+@keyframes show-card-shine {
+  0% {
+    left: -75%;
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 145%;
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   SELECTED STATE MICRO ANIMATION
+   ========================================================= */
+
+.movie-show-times
+  button.selected:not(.selecting) {
+  animation:
+    selected-card-settle
+    0.32s
+    ease-out
+    both;
+}
+
+@keyframes selected-card-settle {
+  0% {
+    transform: scale(0.97);
+  }
+
+  55% {
+    transform: scale(1.025);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   NO SHOWS
+   ========================================================= */
+
+.movie-no-shows {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-height: 54px;
+
+  padding: 12px 13px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.07);
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.018
+  );
+
+  color: #777780;
+}
+
+.movie-no-shows svg {
+  flex: 0 0 auto;
+}
+
+.movie-no-shows p {
+  margin: 0;
+
+  font-size: 9px;
+
+  line-height: 1.6;
+}
+
+/* =========================================================
+   BOOKING BUTTON
+   ========================================================= */
+
+.movie-book-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  width: 100%;
+
+  min-height: 45px;
+
+  margin-top: 14px;
+
+  overflow: hidden;
+
+  border: 1px solid
+    rgba(255, 23, 56, 0.55);
+
+  border-radius: 3px;
+
+  background: #ff1738;
+
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.55px;
+
+  box-shadow:
+    0 10px 28px
+      rgba(255, 23, 56, 0.11);
+
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.movie-book-button:hover:not(
+    :disabled
+  ) {
+  transform: translateY(-1px);
+
+  background: #f4082f;
+
+  box-shadow:
+    0 13px 34px
+      rgba(255, 23, 56, 0.18);
+}
+
+.movie-book-button:disabled {
+  border-color: rgba(
+    255,
+    255,
+    255,
+    0.08
+  );
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.045
+  );
+
+  color: #777780;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+.movie-book-button.has-selection {
+  background:
+    linear-gradient(
+      135deg,
+      #ff1738,
+      #ed1030
+    );
+
+  border-color: #ff1738;
+}
+
+/* =========================================================
+   BOOKING NOTE
+   ========================================================= */
+
+.movie-coming-note {
+  margin: 9px 0 0;
+
+  color: #686870;
+
+  text-align: center;
+
+  font-size: 8px;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.2px;
+}
+
+/* =========================================================
+   RESPONSIVE — 1250
+   ========================================================= */
+
+@media (max-width: 1250px) {
+  .movie-grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 950
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .movies-hero {
+    min-height: 660px;
+  }
+
+  .movies-hero-content {
+    width: 68%;
+  }
+
+  .movie-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 700
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .movies-topbar {
+    padding: 20px 6%;
+  }
+
+  .movies-brand img {
+    width: 105px;
+  }
+
+  .movies-back-link {
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+
+  .movies-hero {
+    min-height: 650px;
+
+    align-items: end;
+
+    padding: 120px 6% 70px;
+  }
+
+  .movies-hero-content {
+    width: 100%;
+  }
+
+  .movies-hero h1 {
+    font-size:
+      clamp(48px, 14vw, 76px);
+
+    letter-spacing: -3.5px;
+  }
+
+  .movies-hero-copy {
+    max-width: 330px;
+
+    font-size: 12px;
+  }
+
+  .movies-hero-art-image {
+    inset: -2%;
+
+    background-position: center;
+  }
+
+  .movies-hero-vignette {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(8, 8, 10, 0.2) 0%,
+        rgba(8, 8, 10, 0.5) 38%,
+        #08080a 84%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(8, 8, 10, 0.45),
+        rgba(8, 8, 10, 0.08)
+      );
+  }
+
+  .movies-hero-dots {
+    right: 6%;
+    bottom: 28px;
+  }
+
+  .movies-list-section {
+    padding: 60px 6% 78px;
+  }
+
+  .movies-section-heading {
+    align-items: start;
+
+    flex-direction: column;
+
+    gap: 22px;
+  }
+
+  .movie-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 28px 12px;
+  }
+
+  .movie-card-info h3 {
+    font-size: 12px;
+  }
+
+  .movie-card-info p {
+    font-size: 8px;
+  }
+
+  .movie-rating {
+    font-size: 6px;
+  }
+
+  .movie-meta {
+    font-size: 7px;
+  }
+
+  .movies-experience {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+
+    padding: 75px 6% 90px;
+  }
+
+  /* MODAL */
+
+  .movie-modal-backdrop {
+    padding: 12px;
+  }
+
+  .movie-modal {
+    max-height:
+      calc(100vh - 24px);
+  }
+
+  .movie-modal-backdrop-image {
+    min-height: 210px;
+  }
+
+  .movie-modal-content {
+    padding:
+      3px 22px 22px;
+  }
+
+  .movie-modal-content h2 {
+    font-size: 31px;
+  }
+
+  .movie-modal-story {
+    margin-bottom: 17px;
+  }
+
+  /* COMPACT SHOW GRID */
+
+  .movie-show-times {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 7px;
+  }
+
+  .movie-show-times button {
+    min-height: 52px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE — 420
+   ========================================================= */
+
+@media (max-width: 420px) {
+  .movies-topbar {
+    padding: 17px 5%;
+  }
+
+  .movies-back-link span {
+    display: none;
+  }
+
+  .movies-brand img {
+    width: 96px;
+  }
+
+  .movies-hero {
+    min-height: 610px;
+
+    padding-inline: 5%;
+  }
+
+  .movies-list-section {
+    padding-inline: 5%;
+  }
+
+  .movie-grid {
+    gap: 24px 10px;
+  }
+
+  .movie-card-info {
+    gap: 5px;
+  }
+
+  .movie-card-info h3 {
+    font-size: 11px;
+  }
+
+  /* EVEN MORE COMPACT MODAL */
+
+  .movie-modal-backdrop {
+    padding: 8px;
+  }
+
+  .movie-modal {
+    max-height:
+      calc(100vh - 16px);
+
+    border-radius: 5px;
+  }
+
+  .movie-modal-close {
+    top: 10px;
+    right: 10px;
+
+    width: 34px;
+    height: 34px;
+  }
+
+  .movie-modal-backdrop-image {
+    min-height: 185px;
+  }
+
+  .movie-modal-content {
+    padding:
+      2px 16px 18px;
+  }
+
+  .movie-modal-content h2 {
+    font-size: 26px;
+  }
+
+  .movie-modal-description {
+    font-size: 10px;
+  }
+
+  .movie-modal-story {
+    font-size: 10px;
+    line-height: 1.55;
+  }
+
+  .movie-show-heading {
+    margin-bottom: 8px;
+  }
+
+  .movie-show-groups {
+    gap: 10px;
+  }
+
+  .movie-show-date {
+    margin-bottom: 6px;
+  }
+
+  .movie-show-date-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .movie-show-date strong {
+    font-size: 9px;
+  }
+
+  .movie-show-date span {
+    font-size: 8px;
+  }
+
+  .movie-show-times {
+    gap: 6px;
+  }
+
+  .movie-show-times button {
+    min-height: 49px;
+
+    padding:
+      6px 5px;
+  }
+
+  .show-time {
+    font-size: 10px;
+  }
+
+  .show-price {
+    font-size: 7.5px;
+  }
+
+  .show-screen {
+    font-size: 6px;
+  }
+
+  .movie-book-button {
+    min-height: 43px;
+
+    margin-top: 11px;
+  }
+
+  .movie-coming-note {
+    font-size: 7px;
+  }
+}
+
+/* =========================================================
+   SELECTED VENUE / LOCATION ROW
+   ========================================================= */
+
+.movie-selected-location {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.movie-selected-location-name {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  color: #a8a8b0;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.65px;
+  text-transform: uppercase;
+}
+
+.movie-selected-location-name svg {
+  flex: 0 0 auto;
+  color: #ff1738;
+}
+
+.movie-selected-location-name span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.show-location-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: 0 0 auto;
+  color: #d8d8dd;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.show-location-link svg:first-child {
+  color: #ff1738;
+}
+
+.show-location-link:hover {
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+@media (max-width: 420px) {
+  .movie-selected-location {
+    gap: 8px;
+    padding: 7px 8px;
+  }
+
+  .movie-selected-location-name {
+    font-size: 7px;
+  }
+
+  .show-location-link {
+    font-size: 6px;
+    letter-spacing: 0.55px;
+  }
+}
+
+
+/* =========================================================
+   GROUP BOOKING / LIVE PRICING
+   ========================================================= */
+
+.movie-booking-summary {
+  margin-top: 13px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.movie-booking-summary-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.movie-booking-summary-head p {
+  margin: 0 0 3px;
+  color: #eeeeef;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1.1px;
+}
+
+.movie-booking-summary-head span {
+  display: block;
+  color: #6f7078;
+  font-size: 8px;
+  line-height: 1.45;
+}
+
+.movie-total-price {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.movie-total-price span {
+  margin-bottom: 2px;
+  color: #777780;
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+
+.movie-total-price strong {
+  display: block;
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+.movie-group-picker-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 11px 0 9px;
+}
+
+.movie-group-picker-label {
+  min-width: 0;
+}
+
+.movie-group-picker-label > span {
+  display: block;
+  color: #c9c9ce;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.9px;
+}
+
+.movie-group-picker-label small {
+  display: block;
+  margin-top: 3px;
+  color: #707078;
+  font-size: 7px;
+  line-height: 1.3;
+}
+
+.movie-group-picker {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+.movie-group-picker button {
+  width: 35px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  color: #d8d8dc;
+  background: transparent;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.movie-group-picker button:hover:not(:disabled) {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.movie-group-picker button:disabled {
+  color: #44454b;
+  cursor: not-allowed;
+}
+
+.movie-group-picker strong {
+  min-width: 34px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.movie-pricing-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.045);
+}
+
+.movie-pricing-note span {
+  color: #777881;
+  font-size: 6.5px;
+  font-weight: 800;
+  letter-spacing: 0.55px;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.movie-pricing-note span + span {
+  color: #9b9ca4;
+}
+
+/* The selected show price remains the clean entry price.
+   The live total is shown separately in the booking summary. */
+.movie-show-times button.selected .show-price {
+  color: #ffffff;
+}
+
+@media (max-width: 420px) {
+  .movie-booking-summary {
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .movie-booking-summary-head {
+    gap: 10px;
+    padding-bottom: 8px;
+  }
+
+  .movie-booking-summary-head p {
+    font-size: 7px;
+  }
+
+  .movie-booking-summary-head span {
+    font-size: 7px;
+  }
+
+  .movie-total-price strong {
+    font-size: 15px;
+  }
+
+  .movie-group-picker-row {
+    padding: 9px 0 8px;
+  }
+
+  .movie-group-picker {
+    height: 34px;
+  }
+
+  .movie-group-picker button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .movie-group-picker strong {
+    min-width: 30px;
+  }
+
+  .movie-pricing-note {
+    display: block;
+  }
+
+  .movie-pricing-note span {
+    display: block;
+    font-size: 6px;
+  }
+
+  .movie-pricing-note span + span {
+    margin-top: 3px;
+  }
+}
+
+
+/* =========================================================
+   CINETARA BOOKING FLOW + COMING SOON HERO
+   ========================================================= */
+
+.movies-hero-feature span {
+  color: #ff3150;
+}
+
+.movies-hero-feature strong {
+  max-width: min(340px, 48vw);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movie-modal-content.is-booking-step .movie-show-heading,
+.movie-modal-content.is-booking-step .movie-show-groups,
+.movie-modal-content.is-booking-step .movie-booking-summary {
+  display: none;
+}
+
+.movie-customer-step {
+  margin-top: 22px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.035);
+}
+
+.movie-customer-step-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.movie-customer-step-heading > div {
+  display: grid;
+  gap: 6px;
+}
+
+.movie-customer-step-heading span:first-child {
+  color: #ff3150;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.movie-customer-step-heading strong {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.movie-customer-step-total {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.movie-customer-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+}
+
+.movie-customer-form label {
+  display: grid;
+  gap: 7px;
+}
+
+.movie-customer-form label:first-child {
+  grid-column: 1 / -1;
+}
+
+.movie-customer-form label span {
+  color: #a4a4ad;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.movie-customer-form input {
+  width: 100%;
+  min-height: 43px;
+  padding: 0 13px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 3px;
+  outline: none;
+  background: rgba(0,0,0,0.28);
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.movie-customer-form input::placeholder {
+  color: #6f6f78;
+}
+
+.movie-customer-form input:focus {
+  border-color: rgba(255,23,56,0.55);
+  background: rgba(0,0,0,0.4);
+}
+
+.movie-booking-error {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(255,23,56,0.22);
+  background: rgba(255,23,56,0.06);
+  color: #ff7184;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.movie-customer-actions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.movie-customer-actions .movie-book-button {
+  margin-top: 0;
+}
+
+.movie-customer-back {
+  min-height: 45px;
+  padding: 0 17px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 3px;
+  background: rgba(255,255,255,0.04);
+  color: #bcbcc4;
+  cursor: pointer;
+  font: inherit;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.movie-customer-back:hover:not(:disabled) {
+  border-color: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+.movie-booking-created {
+  margin-top: 22px;
+  padding: 24px;
+  border: 1px solid rgba(255,23,56,0.24);
+  border-radius: 4px;
+  background: linear-gradient(145deg, rgba(255,23,56,0.075), rgba(255,255,255,0.025));
+}
+
+.movie-booking-created h3 {
+  margin: 4px 0 8px;
+  color: #fff;
+  font-size: 27px;
+  letter-spacing: 1px;
+}
+
+.movie-booking-created > p:not(.movies-eyebrow):not(.movie-payment-note) {
+  margin: 0;
+  color: #a8a8b0;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.movie-created-summary {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 8px 14px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.movie-created-summary span {
+  color: #777780;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.movie-created-summary strong {
+  color: #ededf0;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.movie-payment-note {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: #8f8f98;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.movie-book-button.has-selection::after {
+  content: "";
+  position: absolute;
+  top: -35%;
+  left: -35%;
+  width: 24%;
+  height: 170%;
+  transform: rotate(22deg) translateX(-220%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.58), transparent);
+  pointer-events: none;
+  animation: cinetaraBookingReflection 3.6s ease-in-out infinite;
+}
+
+.movie-book-button.has-selection:hover::after {
+  animation-duration: 1.35s;
+}
+
+@keyframes cinetaraBookingReflection {
+  0%, 62% {
+    transform: rotate(22deg) translateX(-220%);
+    opacity: 0;
+  }
+  68% {
+    opacity: 0.8;
+  }
+  82%, 100% {
+    transform: rotate(22deg) translateX(720%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .movie-customer-form {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-customer-form label:first-child {
+    grid-column: auto;
+  }
+
+  .movie-customer-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-customer-back {
+    order: 2;
+  }
+
+  .movie-customer-step-heading {
+    gap: 10px;
+  }
+
+  .movie-customer-step-heading strong {
+    font-size: 14px;
+  }
+
+  .movie-customer-step-total {
+    font-size: 16px;
+  }
+
+  .movie-created-summary {
+    grid-template-columns: 72px 1fr;
+  }
+}
+
+/* =========================================================
+   LIVE SHOW AVAILABILITY
+   ========================================================= */
+
+.show-availability {
+  display: block;
+  margin-top: 2px;
+  color: #8f8f98;
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.show-availability.is-low {
+  color: #ff5a70;
+}
+
+.movie-selected-availability {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.movie-selected-availability span {
+  color: #a8a8b0;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+}
+
+.movie-selected-availability small {
+  color: #66666f;
+  font-size: 6.5px;
+  font-weight: 800;
+  letter-spacing: 0.65px;
+  white-space: nowrap;
+}
+
+.movie-selected-availability.is-low span {
+  color: #ff5a70;
+}
+
+.movie-selected-availability.is-sold-out span {
+  color: #777780;
+}
+
+@media (max-width: 420px) {
+  .show-availability {
+    font-size: 5.5px;
+    letter-spacing: 0.55px;
+  }
+
+  .movie-selected-availability {
+    gap: 8px;
+    padding: 7px 8px;
+  }
+
+  .movie-selected-availability span {
+    font-size: 7px;
+  }
+
+  .movie-selected-availability small {
+    font-size: 5.5px;
+  }
+}
+
+/* =========================================================
+   PAYMENT / UPI
+   ========================================================= */
+
+.movie-payment-step {
+  margin-top: 22px;
+  padding: 24px;
+  border: 1px solid rgba(255, 23, 56, 0.22);
+  border-radius: 4px;
+  background: linear-gradient(145deg, rgba(255, 23, 56, 0.065), rgba(255, 255, 255, 0.022));
+}
+
+.movie-payment-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.movie-payment-summary > div {
+  padding: 13px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.movie-payment-summary span,
+.movie-upi-label {
+  display: block;
+  color: #777780;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 1.15px;
+}
+
+.movie-payment-summary strong {
+  display: block;
+  margin-top: 6px;
+  color: #ededf0;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.movie-upi-card {
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(0, 0, 0, 0.22);
+  text-align: center;
+}
+
+.movie-upi-card > strong {
+  display: block;
+  margin-top: 8px;
+  color: #fff;
+  font-size: 17px;
+  letter-spacing: 0.4px;
+  word-break: break-all;
+}
+
+.movie-upi-card > small {
+  display: block;
+  margin-top: 5px;
+  color: #85858e;
+  font-size: 8px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.movie-upi-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-top: 15px;
+}
+
+.movie-upi-pay-button {
+  min-height: 42px;
+  text-decoration: none;
+}
+
+.movie-copy-upi {
+  min-height: 42px;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.movie-payment-instruction {
+  margin: 14px 0 0;
+  color: #8f8f98;
+  font-size: 9px;
+  line-height: 1.65;
+}
+
+.movie-payment-proof-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.movie-payment-proof-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.movie-payment-proof-form label > span {
+  color: #777780;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.movie-payment-proof-form input {
+  width: 100%;
+  min-height: 40px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.035);
+  color: #f2f2f4;
+  padding: 0 11px;
+  font: inherit;
+  font-size: 10px;
+}
+
+.movie-payment-proof-form input:focus {
+  border-color: rgba(255, 23, 56, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.movie-payment-proof-form input[type="file"] {
+  padding: 8px;
+}
+
+.movie-payment-proof-form input[type="file"]::file-selector-button {
+  margin-right: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #ededf0;
+  padding: 6px 8px;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+}
+
+.movie-payment-proof-form small {
+  color: #66666f;
+  font-size: 6.5px;
+  letter-spacing: 0.7px;
+}
+
+.movie-payment-proof-note {
+  margin: 10px 0 0;
+  color: #777780;
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+.movie-payment-submit {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.movie-payment-unconfigured {
+  margin-top: 16px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.movie-payment-unconfigured strong {
+  color: #ff5a70;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.movie-payment-unconfigured p {
+  margin: 8px 0 0;
+  color: #8f8f98;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .movie-payment-step {
+    padding: 18px;
+  }
+
+  .movie-payment-summary,
+  .movie-upi-actions,
+  .movie-payment-proof-form {
+    grid-template-columns: 1fr;
+  }
+
+  .movie-upi-card > strong {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   UPI PAYMENT ACTION
+   ========================================================= */
+
+.movie-upi-pay-button {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}

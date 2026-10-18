@@ -1,0 +1,529 @@
+.admin-rentals {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.admin-page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 36px;
+}
+
+.admin-page-eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #8c8c94;
+  margin-bottom: 12px;
+}
+
+.admin-page-heading h1 {
+  margin: 0;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  font-weight: 500;
+}
+
+.admin-page-heading h1 span {
+  color: #c83b4e;
+}
+
+.admin-page-heading p {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: #77777f;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.admin-refresh-button {
+  min-height: 40px;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.025);
+  color: #aaaab0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.admin-refresh-button:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.admin-refresh-button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.admin-refresh-spin {
+  animation: rental-refresh-spin 800ms linear infinite;
+}
+
+@keyframes rental-refresh-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.rental-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 34px;
+}
+
+.rental-stat-card {
+  min-height: 128px;
+  padding: 21px;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  background: rgba(255, 255, 255, 0.025);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rental-stat-card span {
+  font-size: 9px;
+  color: #77777f;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.rental-stat-card strong {
+  margin-top: auto;
+  font-size: 31px;
+  line-height: 1;
+  font-weight: 500;
+  color: #eee;
+}
+
+.rental-stat-card small {
+  margin-top: 8px;
+  color: #55555d;
+  font-size: 9px;
+}
+
+.rental-stat-new strong {
+  color: #d6aa62;
+}
+
+.rental-stat-confirmed strong {
+  color: #76b88c;
+}
+
+.rental-stat-cancelled strong {
+  color: #c96975;
+}
+
+/* =========================================================
+   LIST SECTION
+========================================================= */
+
+.admin-rental-list-section {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 28px;
+}
+
+.admin-rental-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.admin-rental-toolbar h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.admin-rental-toolbar p {
+  margin: 6px 0 0;
+  color: #5e5e65;
+  font-size: 10px;
+}
+
+.admin-rental-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-rental-search {
+  width: 300px;
+  height: 39px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.025);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #616168;
+}
+
+.admin-rental-search input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #ddd;
+  font-size: 11px;
+}
+
+.admin-rental-search input::placeholder {
+  color: #55555c;
+}
+
+.admin-rental-filters select {
+  height: 39px;
+  padding: 0 11px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 7px;
+  background: #121216;
+  color: #9999a0;
+  outline: 0;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   ENQUIRY CARD
+========================================================= */
+
+.admin-enquiries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.admin-enquiry-card {
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.065);
+  border-radius: 10px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.012)
+    );
+  transition:
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.admin-enquiry-card:hover {
+  border-color: rgba(255, 255, 255, 0.11);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.015)
+    );
+}
+
+.admin-enquiry-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.admin-enquiry-reference {
+  color: #b93347;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.admin-enquiry-top h3 {
+  margin: 0;
+  color: #eee;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.admin-enquiry-created {
+  display: block;
+  margin-top: 5px;
+  color: #55555d;
+  font-size: 9px;
+}
+
+.admin-enquiry-status {
+  padding: 6px 9px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status-new {
+  color: #d8ae64;
+  border-color: rgba(216, 174, 100, 0.22);
+  background: rgba(216, 174, 100, 0.055);
+}
+
+.status-contacted {
+  color: #9babb8;
+  border-color: rgba(155, 171, 184, 0.2);
+  background: rgba(155, 171, 184, 0.04);
+}
+
+.status-confirmed {
+  color: #75b68a;
+  border-color: rgba(117, 182, 138, 0.2);
+  background: rgba(117, 182, 138, 0.04);
+}
+
+.status-cancelled {
+  color: #c86c77;
+  border-color: rgba(200, 108, 119, 0.2);
+  background: rgba(200, 108, 119, 0.04);
+}
+
+.status-closed {
+  color: #77777e;
+}
+
+.admin-enquiry-details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.admin-enquiry-details div {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #66666e;
+  font-size: 10px;
+}
+
+.admin-enquiry-details span {
+  color: #98989f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-enquiry-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.admin-enquiry-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-enquiry-meta span,
+.admin-enquiry-message > span {
+  color: #4e4e55;
+  font-size: 8px;
+  letter-spacing: 0.14em;
+}
+
+.admin-enquiry-meta strong {
+  color: #aaaab0;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.admin-enquiry-message {
+  margin-top: 17px;
+  padding: 13px 14px;
+  background: rgba(0, 0, 0, 0.16);
+  border-radius: 6px;
+}
+
+.admin-enquiry-message p {
+  margin: 7px 0 0;
+  color: #88888f;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.admin-enquiry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.enquiry-action {
+  min-height: 32px;
+  padding: 0 11px;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #818188;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 9px;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.enquiry-action:hover:not(:disabled) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.enquiry-action:disabled {
+  opacity: 0.32;
+  cursor: default;
+}
+
+.enquiry-action.confirmed:hover:not(:disabled) {
+  color: #80c795;
+  border-color: rgba(128, 199, 149, 0.25);
+}
+
+.enquiry-action.cancelled:hover:not(:disabled) {
+  color: #d67581;
+  border-color: rgba(214, 117, 129, 0.25);
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.admin-empty-state {
+  min-height: 250px;
+  border: 1px dashed rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  color: #55555c;
+}
+
+.admin-empty-state svg {
+  margin-bottom: 5px;
+}
+
+.admin-empty-state strong {
+  color: #8b8b92;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.admin-empty-state span {
+  font-size: 9px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+  .rental-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .admin-page-heading {
+    align-items: flex-start;
+  }
+
+  .admin-rental-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-rental-filters {
+    width: 100%;
+  }
+
+  .admin-rental-search {
+    flex: 1;
+    width: auto;
+  }
+}
+
+@media (max-width: 650px) {
+  .rental-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-page-heading {
+    flex-direction: column;
+    margin-bottom: 27px;
+  }
+
+  .admin-page-heading h1 {
+    font-size: 38px;
+  }
+
+  .admin-refresh-button {
+    align-self: flex-start;
+  }
+
+  .admin-rental-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-rental-search,
+  .admin-rental-filters select {
+    width: 100%;
+  }
+
+  .admin-enquiry-details,
+  .admin-enquiry-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 430px) {
+  .rental-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-enquiry-card {
+    padding: 17px;
+  }
+
+  .admin-enquiry-top {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

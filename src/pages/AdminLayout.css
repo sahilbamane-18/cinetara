@@ -1,0 +1,461 @@
+.admin-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(154, 26, 39, 0.1),
+      transparent 32%
+    ),
+    #09090b;
+  color: #f5f5f5;
+  display: flex;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.admin-sidebar {
+  width: 250px;
+  min-width: 250px;
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(18, 18, 21, 0.98),
+      rgba(10, 10, 12, 0.98)
+    );
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 100;
+}
+
+.admin-sidebar-top {
+  padding: 25px 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.admin-brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+.admin-brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.admin-brand-copy strong {
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+}
+
+.admin-brand-copy span {
+  font-size: 8px;
+  letter-spacing: 0.16em;
+  color: #77777f;
+}
+
+.admin-mobile-close {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: #999;
+  cursor: pointer;
+}
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.admin-nav-label {
+  padding: 25px 22px 11px;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #5e5e65;
+}
+
+.admin-nav {
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-nav-link {
+  min-height: 47px;
+  padding: 0 13px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #8f8f96;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  position: relative;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.admin-nav-link:hover {
+  background: rgba(255, 255, 255, 0.045);
+  color: #e9e9eb;
+}
+
+.admin-nav-link-active {
+  color: #fff;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(154, 26, 39, 0.25),
+      rgba(154, 26, 39, 0.07)
+    );
+}
+
+.admin-nav-link-active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  border-radius: 2px;
+  background: #c52c40;
+}
+
+.admin-nav-link-active svg {
+  color: #d84a5c;
+}
+
+.admin-nav-status {
+  margin-left: auto;
+  font-size: 7px;
+  letter-spacing: 0.12em;
+  color: #74b98c;
+  border: 1px solid rgba(116, 185, 140, 0.25);
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   SIDEBAR FOOTER
+========================================================= */
+
+.admin-sidebar-bottom {
+  margin-top: auto;
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-system-status {
+  padding: 11px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.admin-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #5cbf78;
+  box-shadow: 0 0 10px rgba(92, 191, 120, 0.55);
+  flex-shrink: 0;
+}
+
+.admin-system-status div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.admin-system-status strong {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.admin-system-status span {
+  font-size: 8px;
+  color: #68686f;
+}
+
+.admin-sidebar-logout {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: transparent;
+  color: #85858c;
+  border-radius: 8px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 11px;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.admin-sidebar-logout:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+}
+
+/* =========================================================
+   MAIN AREA
+========================================================= */
+
+.admin-main {
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  min-width: 0;
+}
+
+.admin-topbar {
+  height: 72px;
+  padding: 0 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(9, 9, 11, 0.85);
+  backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.admin-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #5e5e65;
+  text-transform: uppercase;
+}
+
+.admin-breadcrumb i {
+  color: #35353a;
+  font-style: normal;
+}
+
+.admin-breadcrumb strong {
+  color: #d0d0d3;
+  font-weight: 600;
+}
+
+.admin-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.admin-live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #96969c;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+}
+
+.admin-live-indicator span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5fc47a;
+  box-shadow: 0 0 9px rgba(95, 196, 122, 0.5);
+}
+
+.admin-topbar-logout {
+  border: 0;
+  background: transparent;
+  color: #77777e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  transition: color 180ms ease;
+}
+
+.admin-topbar-logout:hover {
+  color: #fff;
+}
+
+.admin-content {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  padding: 42px;
+}
+
+.admin-mobile-menu {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: #ddd;
+  cursor: pointer;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.admin-loading {
+  min-height: 100vh;
+  background: #09090b;
+  display: grid;
+  place-items: center;
+  color: #777;
+}
+
+.admin-loading-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.admin-loading-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  opacity: 0.9;
+}
+
+.admin-loading-line {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b62c40,
+    transparent
+  );
+  animation: admin-loading-pulse 1.2s ease-in-out infinite;
+}
+
+.admin-loading-inner > span {
+  font-size: 8px;
+  letter-spacing: 0.2em;
+}
+
+@keyframes admin-loading-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scaleX(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.admin-sidebar-backdrop {
+  display: none;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    transition: transform 240ms ease;
+    box-shadow: 15px 0 50px rgba(0, 0, 0, 0.35);
+  }
+
+  .admin-sidebar-open {
+    transform: translateX(0);
+  }
+
+  .admin-mobile-close {
+    display: grid;
+    place-items: center;
+  }
+
+  .admin-sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(3px);
+    z-index: 90;
+    cursor: pointer;
+  }
+
+  .admin-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .admin-mobile-menu {
+    display: grid;
+    place-items: center;
+  }
+
+  .admin-topbar {
+    padding: 0 22px;
+    gap: 18px;
+  }
+
+  .admin-breadcrumb {
+    margin-right: auto;
+  }
+
+  .admin-content {
+    padding: 30px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-topbar {
+    height: 64px;
+    padding: 0 17px;
+  }
+
+  .admin-topbar-right {
+    gap: 10px;
+  }
+
+  .admin-live-indicator {
+    display: none;
+  }
+
+  .admin-topbar-logout {
+    font-size: 9px;
+  }
+
+  .admin-content {
+    padding: 24px 16px;
+  }
+}

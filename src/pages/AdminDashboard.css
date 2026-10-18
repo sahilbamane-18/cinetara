@@ -1,0 +1,308 @@
+.admin-dashboard {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.dashboard-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 38px;
+}
+
+.dashboard-eyebrow {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: #77777f;
+  margin-bottom: 12px;
+}
+
+.dashboard-heading h1 {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+}
+
+.dashboard-heading h1 span {
+  color: #c83b4e;
+}
+
+.dashboard-heading p {
+  max-width: 600px;
+  margin: 17px 0 0;
+  color: #77777f;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.dashboard-date {
+  min-width: 110px;
+  padding: 14px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.dashboard-date span {
+  color: #55555c;
+  font-size: 7px;
+  letter-spacing: 0.16em;
+}
+
+.dashboard-date strong {
+  color: #65b67d;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   MODULE CARDS
+========================================================= */
+
+.dashboard-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.dashboard-module {
+  min-height: 310px;
+  padding: 27px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 11px;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 255, 255, 0.035),
+      transparent 40%
+    ),
+    rgba(255, 255, 255, 0.018);
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background 220ms ease;
+}
+
+.dashboard-module::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -80px;
+  bottom: -90px;
+  border-radius: 50%;
+  background: rgba(177, 39, 56, 0.09);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.dashboard-module:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(255, 255, 255, 0.055),
+      transparent 42%
+    ),
+    rgba(255, 255, 255, 0.025);
+}
+
+.dashboard-module-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.dashboard-module-top > span {
+  color: #424249;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.dashboard-module-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+  display: grid;
+  place-items: center;
+  color: #b83347;
+}
+
+.dashboard-module-content {
+  margin-top: auto;
+}
+
+.dashboard-module-label {
+  margin-bottom: 8px;
+  color: #68686f;
+  font-size: 8px;
+  letter-spacing: 0.18em;
+}
+
+.dashboard-module h2 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+}
+
+.dashboard-module h2 span {
+  color: #c43b4d;
+}
+
+.dashboard-module p {
+  max-width: 500px;
+  margin: 11px 0 0;
+  color: #6d6d74;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.dashboard-module-link {
+  margin-top: 22px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #a4a4aa;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dashboard-module:hover .dashboard-module-link {
+  color: #fff;
+}
+
+/* =========================================================
+   COORDINATION
+========================================================= */
+
+.dashboard-coordination {
+  margin-top: 48px;
+  padding: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.coordination-heading {
+  max-width: 680px;
+}
+
+.coordination-heading h2 {
+  margin: 0;
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.coordination-heading h2 span {
+  color: #c43b4d;
+}
+
+.coordination-heading p {
+  margin: 10px 0 0;
+  color: #67676e;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.coordination-flow {
+  margin-top: 30px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.018);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.coordination-flow div {
+  min-width: 75px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.coordination-flow span {
+  color: #494950;
+  font-size: 7px;
+  letter-spacing: 0.12em;
+}
+
+.coordination-flow strong {
+  color: #b5b5bb;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.coordination-flow i {
+  color: #48484f;
+  font-style: normal;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+  .dashboard-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .dashboard-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coordination-flow {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .coordination-flow i {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .dashboard-heading h1 {
+    font-size: 40px;
+  }
+
+  .dashboard-date {
+    display: none;
+  }
+
+  .dashboard-module {
+    min-height: 280px;
+    padding: 21px;
+  }
+
+  .dashboard-coordination {
+    padding: 24px 0;
+  }
+
+  .coordination-heading h2 {
+    font-size: 23px;
+  }
+}
